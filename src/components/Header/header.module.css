@@ -1,0 +1,20 @@
+.header {
+  padding: 15px;
+  div {
+    display: flex;
+    gap: 15px;
+    list-style-type: none;
+    a {
+      padding: 10px;
+      border: 1px solid red;
+      border-radius: 10px;
+      transition: all 0.3s;
+      color: red;
+      &:hover,
+      &.active {
+        background-color: red;
+        color: white;
+      }
+    }
+  }
+}
