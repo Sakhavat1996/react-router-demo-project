@@ -1,43 +1,33 @@
+import { NavLink } from "react-router";
+// import { useTabs } from "./TabsContext";
 import classes from "./header.module.css";
-import { Link, NavLink } from "react-router";
-export default function Header() {
+
+export default function Header({ onAddTab }) {
+  const links = [
+    { to: "/home", label: "HOME" },
+    { to: "/about", label: "ABOUT" },
+    { to: "/fag", label: "FAG" },
+    { to: "/products", label: "PRODUCTS" },
+    { to: "/users", label: "USERS" },
+  ];
+
+  const handleClick = (to, label) => {
+    onAddTab(to, label);
+  };
+
   return (
     <header className={classes.header}>
       <div>
-        <NavLink
-          className={({isActive}) => (isActive ? "active" : null)}
-          to="/home"
-        >
-          HOME
-        </NavLink>
-
-        <NavLink
-          className={({isActive}) => (isActive ? "active" : null)}
-          to="/about"
-        >
-          ABOUT
-        </NavLink>
-
-        <NavLink
-          className={({isActive}) => (isActive ? "active" : null)}
-          to="/fag"
-        >
-          FAG
-        </NavLink>
-
-        <NavLink
-          className={({isActive}) => (isActive ? "active" : null)}
-          to="/products"
-        >
-          PRODUCTS
-        </NavLink>
-
-        <NavLink
-          className={({isActive}) => (isActive ? "active" : null)}
-          to="/users"
-        >
-          USERS
-        </NavLink>
+        {links.map((link) => (
+          <NavLink
+            key={link.to}
+            className="header-link"
+            to={link?.to}
+            onClick={() => handleClick(link.to, link.label)}
+          >
+            {link.label}
+          </NavLink>
+        ))}
       </div>
     </header>
   );

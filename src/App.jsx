@@ -13,23 +13,18 @@ import UsersData from "./components/UsersData";
 
 function App() {
   const router = createBrowserRouter([
-    // { path: "/", element: <Home />, errorElement: <ErrorPage /> },
-    // { path: "/home", element: <Home /> },
-    // { path: "/fag", element: <FAG /> },
-    // { path: "/about", element: <About /> },
-    // { path: "/products", element: <Products /> },
     {
       path: "/",
       element: <Layout />,
       errorElement: <ErrorPage />,
       children: [
-        {path: '/users' , element: <Users/>},
-        {path: '/users/:id' , element: <UsersData/>}
-        // { path: "/home", element: <Home /> },
-        // { path: "/fag", element: <FAG /> },
-        // { path: "/about", element: <About /> },
-        // { path: "/products", element: <Products /> },
-        // { path: "/products/:id", element: <ProductDetail /> },
+        { path: "users", element: <Users /> },
+        { path: "users/:id", element: <UsersData /> },
+        { path: "home", element: <Home /> },
+        { path: "fag", element: <FAG /> },
+        { path: "about", element: <About /> },
+        { path: "products", element: <Products /> },
+        { path: "products/:id", element: <ProductDetail /> },
       ],
     },
   ]);
