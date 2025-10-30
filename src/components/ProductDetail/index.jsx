@@ -1,13 +1,9 @@
-import { useLocation, useNavigate, useParams } from "react-router";
-import data from "../data";
-import { Link } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import { productData } from "./data";
 
 export default function ProductDetail() {
   const { id } = useParams();
-  const path = useLocation();
-  console.log(path)
   const navigate = useNavigate();
-  console.log(history);
   const goToBack = () => {
     navigate("/products");
   };
@@ -16,8 +12,8 @@ export default function ProductDetail() {
       <button onClick={goToBack}>Back</button>
       <h1>MARKA : {id.toLocaleUpperCase()}</h1>
       <ul>
-        <li>Year: {data[id].year}</li>
-        <li>Model: {data[id].model}</li>
+        <li>Year: {productData[id].year}</li>
+        <li>Model: {productData[id].model}</li>
       </ul>
     </>
   );
